@@ -1,0 +1,57 @@
+
+{% extends "base.html" %}
+
+{% block signup_content %}
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <h1>Register an Account</h1>
+        <fieldset>
+            <legend>
+                <label for="user-name">{{ form.username.label}}
+					 	 {{ form.username }} 
+                    {% if form.username.errors %}
+                        {% for error in form.username.errors %}
+                            <span class="error">
+                                {{ error }}
+                            </span>
+                        {% endfor %}       
+                    {% endif %}
+            
+                <label for="email-address">{{ form.email.label }}     
+                  {{ form.email }}  
+						  {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                            <span class="error">
+                                {{ error }}
+                            </span>    
+                        {% endfor %}
+                    {% endif %}
+               
+                <label for="password">{{ form.password.label }} 
+
+					 	{{ form.password }}
+						{% if form.password.errors %}
+							{% for error in form.password.errors %}
+									<span class="error">
+										{{ error }}
+									</span>
+							{% endfor %} 
+						{% endif %}
+           
+                <label for="confirm">{{ form.confirm_password.label }}
+					 	{{ form.confirm_password }} 
+      
+						{% if form.confirm_password.errors %}
+							{% for error in form.confirm_password.errors %}
+									<span class="error">
+										{{ error }}
+									</span>
+							{% endfor %}
+						{% endif %}
+
+            </legend>
+        </fieldset>
+        {{ form.submit(class="button") }}
+    </form>
+
+{% endblock %}
