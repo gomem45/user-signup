@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block signup_content %}
+  <body>
+
+    <div class="container">
+      <div class="form-wrapper">
+
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+        <h1>Register a New Account</h1>
+
+        <form action="/signup" method="POST">
+        
+          <input type="text" name="username" value="{{ username }}" placeholder="Username"/>
+          <p class="error">{{ username_error }}</p>
+
+          <input type="password" name="password" value="{{ password }}" placeholder="Password"/>
+          <p class="error">{{ password_error }}</p>
+
+          <input type="password" name="verify" value="{{ verify }}" placeholder="Verify Password"/>
+          <p class="error">{{ verify_error }}</p>
+
+          <input type="text" name="email" value="{{ email }}" placeholder="Email (Optional)"/>
+          <p class="error">{{ email_error }}</p>
+
+          <input type="submit" name="submit" value="Sign Up">
+          
+        </form>
+
+      </div>
+
+    </div>
+
+  </body>
+{% endblock %}
